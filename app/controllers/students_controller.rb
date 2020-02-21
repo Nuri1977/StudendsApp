@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def index
     @students = Student.all
@@ -12,22 +13,19 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     if @student.save
       flash[:notice] = "You have successfully signed up"
-      redirect_to students_path
+      redirect_to student_path(@student)
     else
       render 'new'
     end
   end
 
   def show
-    @student = Student.find(params[:id])
   end
 
   def edit
-    @student = Student.find(params[:id])
   end
 
   def update
-    @student = Student.find(params[:id])
     if @student.update(student_params)
       flash[:notice] = "You have successfully updated you profile"
       redirect_to student_path(@student)
@@ -37,7 +35,6 @@ class StudentsController < ApplicationController
   end
 
   def destroy
-    @student = Student.find(params[:id])
     if @student.destroy
       flash[:notice] = "You have successfully deleted you profile"
       redirect_to root_path
@@ -50,6 +47,10 @@ class StudentsController < ApplicationController
 
   def student_params
     params.require(:student).permit(:name, :email)
+  end
+
+  def set_student
+    @student = Student.find(params[:id])
   end
 
 end
