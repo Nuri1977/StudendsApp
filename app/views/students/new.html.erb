@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col s12">
+    <h3 class="center-align">Sign up!</h3>
+  </div>
+</div>
+
+<%= form_for @student do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.submit "Submit" %>
+<% end %>
