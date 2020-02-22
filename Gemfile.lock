@@ -43,6 +43,7 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (9.7.4)
       execjs
+    bcrypt (3.1.13)
     bindex (0.8.1)
     builder (3.2.4)
     byebug (11.1.1)
@@ -182,6 +183,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
